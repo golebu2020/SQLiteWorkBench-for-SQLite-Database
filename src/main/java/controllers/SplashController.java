@@ -1,5 +1,6 @@
 package controllers;
 
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,16 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import main_window.HelperClass;
-import main_window.Splash;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -38,9 +33,9 @@ public class SplashController implements Initializable {
                     Parent root = null;
                     try {
 
-                        root = FXMLLoader.load(HelperClass.MAIN_WINDOW_URL);
-                        root.getStylesheets().add(HelperClass.WHITE_THEME_URL.toString());
-                       // scene.getStylesheets().add(Objects.requireNonNull(Splash.class.getResource("../resources/java-keywords.css")).toExternalForm());
+                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("views/main_window.fxml")));
+                        root.getStylesheets().add(Objects.requireNonNull(getClass().getClassLoader().getResource("assets/application.css")).toExternalForm());
+                        // scene.getStylesheets().add(Objects.requireNonNull(Splash.class.getResource("../resources/java-keywords.css")).toExternalForm());
 
                         Scene scene = new Scene(root);
 
@@ -48,7 +43,7 @@ public class SplashController implements Initializable {
                         newStage.setTitle("SQLiteMaintainer");
                         newStage.show();//scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("../resources/application.css")).toExternalForm());
 
-                        newStage.getIcons().add(new Image(HelperClass.APP_ICON_URL.toString()));
+                        newStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("assets/app_icon.PNG"))));
                         anchorPaneSplash.getScene().getWindow().hide();
                     } catch (IOException e) {
                         e.printStackTrace();

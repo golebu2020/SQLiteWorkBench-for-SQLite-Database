@@ -1,5 +1,7 @@
 package main_window;
 
+import controllers.MainController;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -59,9 +61,7 @@ public class HelperClass {
        public static URL HISTORY_LIST_CELL_URL = null;
        public static URL MAIN_WINDOW_URL = null;
        public static URL NEW_SPLASH_URL = null;
-       public static URL RUN_CODE_CELL_URL = null;
        public static URL TEXT_AREA_NUMBER_URL = null;
-       public static URL APP_ICON_URL = null;
        public static URL DATABASE_ICON_URL = null;
        public static URL TABLE_ICON_URL = null;
        public static URL COLUMN_ICON_URL = null;
@@ -73,28 +73,23 @@ public class HelperClass {
        public static URL BLACK_THEME_URL = null;
        public static URL  WHITE_THEME_URL = null;
        static {
-              try {
-                     DIALOG_URL = new File("src/main/java/views/dialog.fxml").toURI().toURL();
-                     HISTORY_LIST_CELL_URL = new File("src/main/java/views/history_list_cell.fxml").toURI().toURL();
-                     MAIN_WINDOW_URL = new File("src/main/java/views/main_window.fxml").toURI().toURL();
-                     NEW_SPLASH_URL = new File("src/main/java/views/new_splash.fxml").toURI().toURL();
-                     RUN_CODE_CELL_URL = new File("src/main/java/views/run_code_cell.fxml").toURI().toURL();
-                     TEXT_AREA_NUMBER_URL = new File("src/main/java/views/text_area_number.fxml").toURI().toURL();
-                     APP_ICON_URL = new File("src/main/java/resources/app_icon.PNG").toURI().toURL();
-                     DATABASE_ICON_URL = new File("src/main/java/resources/database.png").toURI().toURL();
-                     TABLE_ICON_URL = new File("src/main/java/resources/table.png").toURI().toURL();
-                     COLUMN_ICON_URL = new File("src/main/java/resources/vertical.png").toURI().toURL();
-                     DELETE_ICON_URL = new File("src/main/java/resources/delete.png").toURI().toURL();
-                     FOLDER_OPEN_ICON_URL = new File("src/main/java/resources/folder_open.png").toURI().toURL();
-                     RUN_CODE_ICON_URL = new File("src/main/java/resources/runcode.png").toURI().toURL();
-                     TICK_ICON_URL = new File("src/main/java/resources/tick.png").toURI().toURL();
-                     CROSS_ICON_URL = new File("src/main/java/resources/cross.png").toURI().toURL();
-                     BLACK_THEME_URL = new File("src/main/java/resources/blacktheme.css").toURI().toURL();
-                     WHITE_THEME_URL = new File("src/main/java/resources/application.css").toURI().toURL();
+              //getClass().getClassLoader().getResource("views/new_splash.fxml")
+              DIALOG_URL = MainController.class.getClassLoader().getResource("views/dialog.fxml");
+              HISTORY_LIST_CELL_URL = MainController.class.getClassLoader().getResource("views/history_list_cell.fxml");
+              MAIN_WINDOW_URL = MainController.class.getClassLoader().getResource("views/main_window.fxml");
+              NEW_SPLASH_URL = Splash.class.getClassLoader().getResource("views/new_splash.fxml");
+              TEXT_AREA_NUMBER_URL = MainController.class.getClassLoader().getResource("views/text_area_number.fxml");
+              DATABASE_ICON_URL = MainController.class.getClassLoader().getResource("assets/database.png");
+              TABLE_ICON_URL = MainController.class.getClassLoader().getResource("assets/table.png");
+              COLUMN_ICON_URL = MainController.class.getClassLoader().getResource("assets/vertical.png");
+              DELETE_ICON_URL = MainController.class.getClassLoader().getResource("assets/delete.png");
+              FOLDER_OPEN_ICON_URL = MainController.class.getClassLoader().getResource("assets/folder_open.png");
+              RUN_CODE_ICON_URL =MainController.class.getClassLoader().getResource("assets/runcode.png");
+              TICK_ICON_URL = MainController.class.getClassLoader().getResource("assets/tick.png");
+              CROSS_ICON_URL = MainController.class.getClassLoader().getResource("assets/cross.png");
+              BLACK_THEME_URL = MainController.class.getClassLoader().getResource("assets/blacktheme.css");
+              WHITE_THEME_URL = MainController.class.getClassLoader().getResource("assets/application.css");
 
-              } catch (MalformedURLException e) {
-                     e.printStackTrace();
-              }
        }
 
 

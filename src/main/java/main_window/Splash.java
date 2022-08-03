@@ -1,9 +1,6 @@
 package main_window;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
 
 import controllers.MainController;
 import javafx.application.Application;
@@ -23,16 +20,18 @@ public class Splash extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         Parent root = FXMLLoader.load(HelperClass.NEW_SPLASH_URL);
-        root.setStyle("-fx-background-radius: 20;" +
-                "-fx-background-color:   #f19f48,   #332b33;" +
-                "-fx-background-insets: 0, 0 3 3 0;");
+//        root.setStyle("-fx-background-radius: 20;" +
+//                "-fx-background-color:   #f19f48,   #332b33;" +
+//                "-fx-background-insets: 0, 0 3 3 0;");
+        root.setStyle("-fx-background-color: transparent");
         Scene scene = new Scene(root, Color.TRANSPARENT);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.initStyle(StageStyle.TRANSPARENT);
 
-        stage.getIcons().add(new Image(HelperClass.APP_ICON_URL.toString()));
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("assets/app_icon.PNG")));
         stage.show();
     }
 

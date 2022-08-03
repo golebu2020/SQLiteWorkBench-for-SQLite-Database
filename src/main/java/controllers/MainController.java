@@ -760,7 +760,7 @@ public class MainController extends TreeViewDatabaseHelper implements Initializa
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setTitle("Add New Database");
-        stage.getIcons().add(new Image(HelperClass.APP_ICON_URL.toString()));
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("assets/app_icon.PNG")));
 
         dialogController.btnAdd.setOnAction(actionEvent -> {
             AddDatabaseHelper.initDB(databasePath, dialogController.textAreaDBName.getText());
